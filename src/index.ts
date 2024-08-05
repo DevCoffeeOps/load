@@ -1,6 +1,6 @@
-import processedData from '../../../process/output/running_shoe_stores.json' assert { type: 'json' };
+import processedData from '../../process/output/running_shoe_stores.json' assert { type: 'json' };
 
-import { PrismaClient, RunningShoeStore } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import { RunningShoeStoreService } from './utils/DbClientFactory';
 
 async function main() {
