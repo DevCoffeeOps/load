@@ -11,3 +11,4 @@ model RunningShoeStore {
   id    Int @id @default(autoincrement())
   data  String
 }
+

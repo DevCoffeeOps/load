@@ -3,12 +3,8 @@
         "declaration": true,
         "outDir": "./dist",
         "rootDir": "./src",
-        "types": [
-            "node"
-        ],
-        "lib": [
-            "esnext",
-        ],
+        "types": ["node"],
+        "lib": ["esnext",],
         "target": "ESNext",
         "module": "ESNext",
         "moduleResolution": "Node",
