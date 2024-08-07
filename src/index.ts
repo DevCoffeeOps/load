@@ -1,4 +1,4 @@
-import processedData from '../../process/output/running_shoe_stores.json' assert { type: 'json' };
+import extractedData from '../../extract/output/googlemaps_places_running_shoe_stores.json' assert { type: 'json' };
 
 import { PrismaClient } from "@prisma/client";
 import { RunningShoeStoreService } from './utils/DbClientFactory';
@@ -10,8 +10,10 @@ async function main() {
     for (const runningShoeStore of runningShoeStores) {
         await runningShoeStoreService.delete(runningShoeStore.id);
     }
-    const ops = processedData.map(async (runningShoeStore: any) => {
-        return await runningShoeStoreService.create(runningShoeStore);
+    const ops = extractedData.places.map((item: any) => {
+        return runningShoeStoreService.create({
+            data: JSON.stringify(item)
+        });
     })
     await Promise.all(ops);
     await printAll(runningShoeStoreService);
@@ -23,4 +25,8 @@ async function printAll(runningShoeStoreService: RunningShoeStoreService) {
     console.log("await runningShoeStoreService.findAll()", JSON.stringify(runningShoeStores, null, 4));
 }
 
-main().then().catch(err => console.log(err));
+import { fileURLToPath } from 'url';
+const currentFilePath = fileURLToPath(import.meta.url);
+if (process.argv[1] === currentFilePath) {
+    main().then().catch(err => console.log(err));
+}

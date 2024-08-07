@@ -1,0 +1,41 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "types": [
+            "node"
+        ],
+        "lib": [
+            "esnext",
+        ],
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": false,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "incremental": false,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "paths": {
+        "*": [
+            "src/*"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "tsc-alias": {
+        "resolveFullPaths": true,
+        "resolveFullExtension": ".js"
+    }
+}

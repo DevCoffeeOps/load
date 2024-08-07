@@ -9,8 +9,5 @@ datasource db {
 
 model RunningShoeStore {
   id    Int @id @default(autoincrement())
-  name  String
-  streetAddress String
-  lng   Float
-  lat   Float
+  data  String
 }
