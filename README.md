@@ -6,3 +6,4 @@ How to customize:
 1. Change the model to suit your needs
 2. Run `db:migrate`
 3. Update types in `DbClientFactory.ts`
+4. Update variables in `src/index.ts` (`rowService` => `yourModelService`)
