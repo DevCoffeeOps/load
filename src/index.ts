@@ -1,4 +1,4 @@
-import extractedData from '../../extract/output/googlemaps_places_running_shoe_stores.json' assert { type: 'json' };
+import extractedData from '../../extract/output/data.json' assert { type: 'json' };
 
 import { PrismaClient } from "@prisma/client";
 import { RunningShoeStoreService } from './utils/DbClientFactory';
