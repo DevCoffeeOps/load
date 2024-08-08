@@ -9,8 +9,8 @@
         "postinstall": "npx ts-patch install",
         "db:migrate": "rm -rf prisma/migrations && npx prisma migrate reset -f && npx prisma generate && npx prisma migrate dev --name init",
         "db:studio": "npx prisma studio",
-        "db:backup": "sqlite3 prisma/running_shoe_stores.db .dump > prisma/backup.sql",
-        "db:restore": "rm -f prisma/running_shoe_stores.db && sqlite3 prisma/running_shoe_stores.db < prisma/backup.sql",
+        "db:backup": "sqlite3 prisma/data.db .dump > prisma/backup.sql",
+        "db:restore": "rm -f prisma/data.db && sqlite3 prisma/data.db < prisma/backup.sql",
         "prebuild": "rm -rf dist/ && rm -f tsconfig.tsbuildinfo",
         "build": "tsc && tsc-alias",
         "start": "node dist/index.js",
@@ -28,11 +28,5 @@
         "tsc-alias": "^1.8.10",
         "tsx": "^4.16.2",
         "typescript": "^5.5.4"
-    },
-    "files": [
-        "dist",
-        "node_modules/.prisma",
-        "node_modules/prisma",
-        "node_modules/@prisma"
-    ]
+    }
 }

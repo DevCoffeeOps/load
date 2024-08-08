@@ -1,28 +1,28 @@
 import extractedData from '../../extract/output/data.json' assert { type: 'json' };
 
 import { PrismaClient } from "@prisma/client";
-import { RunningShoeStoreService } from './utils/DbClientFactory';
+import { RowService } from './utils/DbClientFactory';
 
 async function main() {
     const prisma = new PrismaClient()
-    const runningShoeStoreService = new RunningShoeStoreService(prisma);
-    const runningShoeStores = await runningShoeStoreService.findAll();
-    for (const runningShoeStore of runningShoeStores) {
-        await runningShoeStoreService.delete(runningShoeStore.id);
+    const rowService = new RowService(prisma);
+    const rows = await rowService.findAll();
+    for (const row of rows) {
+        await rowService.delete(row.id);
     }
     const ops = extractedData.places.map((item: any) => {
-        return runningShoeStoreService.create({
+        return rowService.create({
             data: JSON.stringify(item)
         });
     })
     await Promise.all(ops);
-    await printAll(runningShoeStoreService);
+    await printAll(rowService);
     await prisma.$disconnect();
 }
 
-async function printAll(runningShoeStoreService: RunningShoeStoreService) {
-    const runningShoeStores = await runningShoeStoreService.findAll();
-    console.log("await runningShoeStoreService.findAll()", JSON.stringify(runningShoeStores, null, 4));
+async function printAll(rowService: RowService) {
+    const rows = await rowService.findAll();
+    console.log("await rowService.findAll()", JSON.stringify(rows, null, 4));
 }
 
 import { fileURLToPath } from 'url';

@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "RunningShoeStore" (
+CREATE TABLE "Row" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "data" TEXT NOT NULL
 );

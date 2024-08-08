@@ -4,11 +4,10 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./running_shoe_stores.db"
+  url      = "file:./data.db"
 }
 
-model RunningShoeStore {
+model Row {
   id    Int @id @default(autoincrement())
   data  String
 }
-

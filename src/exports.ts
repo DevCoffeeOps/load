@@ -1,8 +1,8 @@
 import { PrismaClient } from '@prisma/client';
-import { RunningShoeStoreService } from './utils/DbClientFactory';
+import { RowService } from './utils/DbClientFactory';
 
-export function createRunningShoeStoreService(){
+export function createRowService() {
     const prisma = new PrismaClient();
-    const runningShoeStoreServiceService = new RunningShoeStoreService(prisma);
-    return runningShoeStoreServiceService;
+    const rowService = new RowService(prisma);
+    return rowService;
 }

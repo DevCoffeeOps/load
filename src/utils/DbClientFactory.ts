@@ -1,8 +1,8 @@
-import { RunningShoeStore, Prisma, PrismaClient } from "@prisma/client";
+import { Row, Prisma, PrismaClient } from "@prisma/client";
 import { BaseDbClient } from "./BaseDbClient";
 
-export class RunningShoeStoreService extends BaseDbClient<RunningShoeStore, Prisma.RunningShoeStoreCreateInput, Prisma.RunningShoeStoreUpdateInput> {
+export class RowService extends BaseDbClient<Row, Prisma.RowCreateInput, Prisma.RowUpdateInput> {
     constructor(prisma: PrismaClient) {
-        super(prisma, 'runningShoeStore')
+        super(prisma, 'row')
     }
 }
