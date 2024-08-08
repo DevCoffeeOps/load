@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 import { RowService } from './utils/DbClientFactory';
 
 async function main() {
-    const prisma = new PrismaClient()
+    const prisma = new PrismaClient();
     const rowService = new RowService(prisma);
     const rows = await rowService.findAll();
     for (const row of rows) {
